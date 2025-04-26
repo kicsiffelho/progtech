@@ -1,0 +1,14 @@
+C:\Users\user\source\repos\KutyaClone\bin\Debug\net8.0\KutyaClone.exe
+C:\Users\user\source\repos\KutyaClone\bin\Debug\net8.0\KutyaClone.deps.json
+C:\Users\user\source\repos\KutyaClone\bin\Debug\net8.0\KutyaClone.runtimeconfig.json
+C:\Users\user\source\repos\KutyaClone\bin\Debug\net8.0\KutyaClone.dll
+C:\Users\user\source\repos\KutyaClone\bin\Debug\net8.0\KutyaClone.pdb
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\KutyaClone.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\KutyaClone.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\KutyaClone.AssemblyInfo.cs
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\KutyaClone.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\KutyaClone.dll
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\refint\KutyaClone.dll
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\KutyaClone.pdb
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\KutyaClone.genruntimeconfig.cache
+C:\Users\user\source\repos\KutyaClone\obj\Debug\net8.0\ref\KutyaClone.dll
