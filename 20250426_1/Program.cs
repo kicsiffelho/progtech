@@ -52,33 +52,132 @@ abstract class AbsztraktÁllapot : ICloneable
 /// </summary>
 class F2p3Állapot : AbsztraktÁllapot
 {
-    static int[] idok = { 1, 2, 5, 10 };
+    int[] idok = { 1, 2, 5, 10 };
+    int[] jobb = { 0, 1, 2, 3 };
+    int[] bal = { -1, -1, -1, -1 };
     int osszIdo;
+    char lampa;
     public F2p3Állapot()
     {
         osszIdo = 0;
+        lampa = 'J';
     }
     public override bool CélÁllapotE()
     {
-        return osszIdo == 17;
+        return jobb.All(x => x == -1) && bal.Contains(0) && bal.Contains(1) && bal.Contains(2) && bal.Contains(3);
     }
 
     public override int OperátorokSzáma()
     {
-        return 2;
+        return 10;
     }
 
     public override bool SzuperOperátor(int i)
     {
-        switch(i)
+        switch (i)
         {
-            case 0: return atmegy();
+            case 0: return atmegy(0, 1);
+            case 1: return atmegy(0, 2);
+            case 2: return atmegy(0, 3);
+            case 3: return atmegy(1, 2);
+            case 4: return atmegy(1, 3);
+            case 5: return atmegy(2, 3);
+            case 6: return atmegy(0, -1);
+            case 7: return atmegy(1, -1);
+            case 8: return atmegy(2, -1);
+            case 9: return atmegy(3, -1);
+            default: return false;
         }
     }
+    private bool atmegy(int elso, int masodik)
+    {
+        if (!preAtmegy(elso, masodik)) return false;
 
+        if (lampa == 'J')
+        {
+            if (masodik == -1)
+            {
+                osszIdo += idok[elso];
+            }
+            else
+            {
+                osszIdo += Math.Max(idok[elso], idok[masodik]);
+            }
+            mozgat(elso, jobb, bal);
+            if (masodik != -1) { mozgat(masodik, jobb, bal); }
+            lampa = 'B';
+        }
+        else
+        {
+            if (masodik == -1)
+            {
+                osszIdo += idok[elso];
+            }
+            else
+            {
+                osszIdo += Math.Max(idok[elso], idok[masodik]);
+            }
+            mozgat(elso, bal, jobb);
+            if (masodik != -1) { mozgat(masodik, bal, jobb); }
+            lampa = 'J';
+        }
+        if (ÁllapotE()) return true;
+        return false;
+    }
+    private bool preAtmegy(int elso, int masodik)
+    {
+        return true;
+
+    }
+    private void mozgat(int ember, int[] oldalrol, int[] oldalra)
+    {
+        for (int i = 0; i < oldalrol.Length; i++)
+        {
+            if (oldalrol[i] == ember)
+            {
+                oldalrol[i] = -1;
+                break;
+            }
+        }
+
+        for (int i = 0; i < oldalra.Length; i++)
+        {
+            if (oldalra[i] == -1)
+            {
+                oldalra[i] = ember;
+                break;
+            }
+        }
+    }
     public override bool ÁllapotE()
     {
-        throw new NotImplementedException();
+        return osszIdo <= 17;
+    }
+    public override string ToString()
+    {
+        return $"Bal oldal: {string.Join(", ", bal)}, Jobb oldal: {string.Join(", ", jobb)} Lámpa: {lampa}, Idő: {osszIdo} perc";
+    }
+    public override object Clone()
+    {
+        F2p3Állapot myClone = new F2p3Állapot();
+        myClone.jobb = (int[])this.jobb.Clone();
+        myClone.bal = (int[])this.bal.Clone();
+        myClone.lampa = this.lampa;
+        myClone.osszIdo = this.osszIdo;
+        return myClone;
+    }
+    public override bool Equals(Object a)
+    {
+        if (a == null) return false;
+        if (a is not F2p3Állapot) return false;
+        F2p3Állapot aa = (F2p3Állapot)a;
+        return this.jobb.SequenceEqual(aa.jobb) &&
+            this.bal.SequenceEqual(aa.bal) && this.lampa == aa.lampa &&
+            this.osszIdo == aa.osszIdo;
+    }
+    public override int GetHashCode()
+    {
+        return jobb.GetHashCode() + bal.GetHashCode() + lampa.GetHashCode() + osszIdo.GetHashCode();
     }
 }
 

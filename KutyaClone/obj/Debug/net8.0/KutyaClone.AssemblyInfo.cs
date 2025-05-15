@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KutyaClone")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bbc73a5e8d72e8c888496a6cb78dd087417f574")]
 [assembly: System.Reflection.AssemblyProductAttribute("KutyaClone")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KutyaClone")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
